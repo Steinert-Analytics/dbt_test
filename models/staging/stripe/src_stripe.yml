@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: dbt_official_training
+    description: Raw payment source data
+    database: delta-entry-457918-c5
+    schema: dbt_official_training
+    tables:
+      - name: payment
+        description: Raw payment/transaction data for jaffle shop's stripe gateway
+        loaded_at_field: _batched_at
+        freshness:
+          warn_after: {count: 24, period: hour}
+          error_after: {count: 72, period: hour}

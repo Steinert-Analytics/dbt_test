@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: dbt_official_training
+    description: A clone of a Postgres application database
+    database: delta-entry-457918-c5
+    schema: dbt_official_training
+    tables:
+      - name: customers
+        description: Raw customer data we saved in BigQuery from their public dataset
+        columns:
+          - name: id
+            description: Primary key for customers data
+            tests:
+              - unique
+              - not_null
+          - name: first_name
+            description: A customer's first name
+          - name: last_name
+            description: A customer's last name
+            
+      - name: orders
+        description: Raw customer data we saved in BigQuery from their public dataset
+        columns:
+          - name: id
+            description: Primary key for orders data
+            tests:
+              - unique              
+              - not_null
+          - name: user_id
+            description: The id of the user
+          - name: order_date
+            description: The date of an order
+          - name: status
+            description: The status of the order
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
