@@ -2,17 +2,21 @@ version: 2
 
 sources:
   - name: dbt_official_training
+    description: A clone of a Postgres application database
     database: delta-entry-457918-c5
     schema: dbt_official_training
     tables:
       - name: customers
+        description: Raw customer data we saved in BigQuery from their public dataset
         columns:
           - name: id
+            description: Primary key for customers data
             tests:
               - unique
               - not_null
             
       - name: orders
+        description: Raw customer data we saved in BigQuery from their public dataset
         columns:
           - name: id
             tests:
