@@ -1,9 +1,9 @@
-version: 2
+# version: 2
 
-sources:
-  - name: dbt_official_training
-    database: delta-entry-457918-c5
-    schema: dbt_official_training
-    tables:
-      - name: customers
-      - name: orders
+# sources:
+#   - name: dbt_official_training
+#     database: delta-entry-457918-c5
+#     schema: dbt_official_training
+#     tables:
+#       - name: customers
+#       - name: orders
