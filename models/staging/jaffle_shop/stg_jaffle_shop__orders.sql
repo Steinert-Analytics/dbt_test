@@ -4,4 +4,4 @@
         order_date,
         status
 
-    from dbt_official_training.orders
+    from {{ source('dbt_official_training', 'orders') }}

@@ -3,4 +3,4 @@ select
     first_name,
     last_name
 
-from dbt_official_training.customers
+from {{ source('dbt_official_training', 'customers') }}
